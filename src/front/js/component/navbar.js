@@ -3,13 +3,19 @@ import { Link } from "react-router-dom";
 
 export const Navbar = () => {
 	return (
-		<nav className="navbar navbar-light bg-light mb-3">
-			<Link to="/">
-				<span className="navbar-brand mb-0 h1">React Boilerplate</span>
+		<nav className="navbar greenPulseBG mb-3 sticky-top">
+			<Link to="/" className="col-3">
+				<img className="img-fluid" src="https://i.postimg.cc/bwcp58Vs/logo.png" />
 			</Link>
-			<div className="ml-auto">
-				<Link to="/demo">
-					<button className="btn btn-primary">Check the Context in action</button>
+			<div className="ml-auto col-9 text-center">
+				<Link className="text-white nav-item ml-3" to="/">
+					Home
+				</Link>
+				<Link className="text-white nav-item ml-3" to="/">
+					Login
+				</Link>
+				<Link className="text-white nav-item ml-3" to="/">
+					Register
 				</Link>
 			</div>
 		</nav>

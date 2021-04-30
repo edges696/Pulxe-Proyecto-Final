@@ -17,6 +17,9 @@ export const Navbar = () => {
 				<Link className="text-white nav-item ml-3" to="/">
 					Register
 				</Link>
+				<Link className="text-white nav-item ml-3" to="/password">
+					Password
+				</Link>
 			</div>
 		</nav>
 	);

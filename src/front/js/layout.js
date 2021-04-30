@@ -7,6 +7,7 @@ import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
 import { Password } from "./pages/password";
+import { Registro } from "./pages/registro";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 
@@ -33,6 +34,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/password">
 							<Password />
+						</Route>
+						<Route exact path="/registro">
+							<Registro />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

@@ -3,7 +3,8 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./pages/home";
-import { Demo } from "./pages/demo";
+import { Demo } from "./pages/pulxesIndex";
+import { PulxesIndex } from "./pages/pulxesIndex";
 import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
 import { Password } from "./pages/password";
@@ -28,6 +29,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/demo">
 							<Demo />
+						</Route>
+						<Route exact path="/pulxesIndex">
+							<PulxesIndex />
 						</Route>
 						<Route exact path="/single/:theid">
 							<Single />

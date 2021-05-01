@@ -45,9 +45,9 @@ export const Pulxes = props => {
 								<div className="col-6 float-left">{props.calificacion}</div>
 							</div>
 							<div className="col-12 text-center mt-3">
-								<a href="#" className="btn btn-primary">
-									Ver Pulxe
-								</a>
+								<Link to={`/single/${props.id}`}>
+									<div className="btn btn-primary">Ver Pulxe</div>
+								</Link>
 							</div>
 						</div>
 					</div>
@@ -63,5 +63,6 @@ Pulxes.propTypes = {
 	ubicacion: PropTypes.string,
 	añosEXP: PropTypes.number,
 	numero: PropTypes.number,
-	calificacion: PropTypes.number
+	calificacion: PropTypes.number,
+	id: PropTypes.number
 };

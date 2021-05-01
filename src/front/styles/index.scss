@@ -4,6 +4,9 @@
 body{
     color: #002538;
 }
+a :hover{
+    color:#117864!important
+}
 .greenPulseBG{
     background-color: #117864
 }
@@ -13,8 +16,17 @@ body{
         font-size: 3rem 
     }
 }
+.wsColorText{
+    color:#25d366!important
+}
+.llamadaColorText{
+    color:lightseagreen!important
+}
 .text3r{
     font-size: 3rem;
+}
+.text4r{
+    font-size: 4rem;
 }
 
 /*----home page-----*/

@@ -56,7 +56,9 @@ export const PulxesIndex = () => {
 							nombre={item.nombre}
 							categoria={item.categoria}
 							pulxe={item.pulxe}
-							ubicacion={item.ubicacion}
+							provincia={item.provincia}
+							distrito={item.distrito}
+							canton={item.canton}
 							añosEXP={item.añosEXP}
 							numero={item.numero}
 							calificacion={item.calificacion}

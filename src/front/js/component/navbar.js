@@ -21,7 +21,7 @@ export const Navbar = () => {
 					Pulxes
 				</Link>
 				<Link className="text-white nav-item ml-3" to="/password">
-					Password
+					Cambio de Password
 				</Link>
 			</div>
 		</nav>

@@ -29,8 +29,16 @@ export const Pulxes = props => {
 								<div className="col-6 float-left tipoPulxe">{props.pulxe}</div>
 							</div>
 							<div className="col-12">
-								<div className="col-6 float-left font-weight-bold">Ubicación</div>
-								<div className="col-6 float-left">{props.ubicacion}</div>
+								<div className="col-6 float-left font-weight-bold">Provincia</div>
+								<div className="col-6 float-left">{props.provincia}</div>
+							</div>
+							<div className="col-12">
+								<div className="col-6 float-left font-weight-bold">Cantón</div>
+								<div className="col-6 float-left">{props.canton}</div>
+							</div>
+							<div className="col-12">
+								<div className="col-6 float-left font-weight-bold">Distrito</div>
+								<div className="col-6 float-left">{props.distrito}</div>
 							</div>
 							<div className="col-12">
 								<div className="col-6 float-left font-weight-bold">Años EXP</div>
@@ -60,7 +68,10 @@ Pulxes.propTypes = {
 	nombre: PropTypes.string,
 	pulxe: PropTypes.string,
 	categoria: PropTypes.string,
-	ubicacion: PropTypes.string,
+	servicio: PropTypes.string,
+	canton: PropTypes.string,
+	distrito: PropTypes.string,
+	provincia: PropTypes.string,
 	añosEXP: PropTypes.number,
 	numero: PropTypes.number,
 	calificacion: PropTypes.number,

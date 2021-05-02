@@ -15,7 +15,7 @@ export const Single = props => {
 			<div className="row rounded shadow border overflow-hidden">
 				<div className="col-6 float-left p-0">
 					<img
-						className="img-fluid"
+						className="img-fluid imgSingle"
 						src="https://image.freepik.com/foto-gratis/carpintero-trabajando_23-2147773407.jpg"
 					/>
 				</div>
@@ -33,8 +33,18 @@ export const Single = props => {
 							<div className="col-6 float-left tipoPulxe">{store.pulxes[params.theid].pulxe}</div>
 						</div>
 						<div className="col-12">
-							<div className="col-6 float-left font-weight-bold">Ubicación</div>
-							<div className="col-6 float-left">{store.pulxes[params.theid].ubicacion}</div>
+							<div className="col-4 p-0 float-left">
+								<div className="col-12 font-weight-bold">Provincia</div>
+								<div className="col-12">{store.pulxes[params.theid].provincia}</div>
+							</div>
+							<div className="col-4 p-0 float-left">
+								<div className="col-12 font-weight-bold">Cantón</div>
+								<div className="col-12">{store.pulxes[params.theid].canton}</div>
+							</div>
+							<div className="col-4 p-0 float-left">
+								<div className="col-12 font-weight-bold">Distrito</div>
+								<div className="col-12">{store.pulxes[params.theid].distrito}</div>
+							</div>
 						</div>
 						<div className="col-12">
 							<div className="col-6 float-left font-weight-bold">Años EXP</div>
@@ -47,6 +57,10 @@ export const Single = props => {
 						<div className="col-12">
 							<div className="col-6 float-left font-weight-bold">Calificación</div>
 							<div className="col-6 float-left">{store.pulxes[params.theid].calificacion}</div>
+						</div>
+						<div className="col-12">
+							<div className="col-12 font-weight-bold">Descripcion</div>
+							<div className="col-12">{store.pulxes[params.theid].descripcion}</div>
 						</div>
 						<div className="col-12 mt-1 text-center">
 							<div className="col-6 float-left text4r">
@@ -68,7 +82,7 @@ export const Single = props => {
 					</div>
 				</div>
 			</div>
-			<div className="col-12 text-center mt-4">
+			<div className="col-12 text-center my-4">
 				<Link to="/pulxesIndex" className="btn btn-danger">
 					Volver
 				</Link>

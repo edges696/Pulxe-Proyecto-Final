@@ -67,6 +67,18 @@ export const CrearCuenta = () => {
 						aria-describedby="basic-addon1"
 					/>
 				</div>
+				<div className="input-group mb-3">
+					<span className="input-group-text" id="basic-addon1">
+						Confirmar Contraseña
+					</span>
+					<input
+						type="text"
+						className="form-control"
+						placeholder="Confirmar Contraseña"
+						aria-label="confirm password"
+						aria-describedby="basic-addon1"
+					/>
+				</div>
 
 				<div className="container">
 					<div className="row mt-5">

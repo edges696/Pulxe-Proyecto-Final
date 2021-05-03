@@ -30,7 +30,7 @@ export const PulxesIndex = () => {
 					</li>
 					<li>
 						<a href="#" className="text-white" id="mecanica">
-							Mecanica
+							Mecánica
 						</a>
 					</li>
 					<li>
@@ -40,7 +40,7 @@ export const PulxesIndex = () => {
 					</li>
 					<li>
 						<a href="#" className="text-white" id="belleza">
-							Balleza
+							Belleza
 						</a>
 					</li>
 				</ul>

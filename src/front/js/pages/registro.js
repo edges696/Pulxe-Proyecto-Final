@@ -176,7 +176,7 @@ export const Registro = () => {
 					/>
 				</div>
 				<div className="container">
-					<div className="row mt-5">
+					<div className="row mt-5 mb-5">
 						<div className="col text-center">
 							<button type="submit" className="btn btn-primary">
 								Publicar mi servicio

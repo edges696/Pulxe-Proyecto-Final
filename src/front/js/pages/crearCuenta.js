@@ -68,10 +68,14 @@ export const CrearCuenta = () => {
 					/>
 				</div>
 
-				<div className="container mt-5">
-					<button type="submit" className="btn btn-primary btn-lg col-2">
-						Enviar
-					</button>
+				<div className="container">
+					<div className="row mt-5">
+						<div className="col text-center">
+							<button type="submit" className="btn btn-primary">
+								Crear Cuenta
+							</button>
+						</div>
+					</div>
 				</div>
 			</form>
 		</div>

@@ -17,6 +17,9 @@ export const Navbar = () => {
 				<Link className="text-white nav-item ml-3" to="/registro">
 					Register
 				</Link>
+				<Link className="text-white nav-item ml-3" to="/crearCuenta">
+					Crear Cuenta
+				</Link>
 				<Link className="text-white nav-item ml-3" to="/pulxesIndex">
 					Pulxes
 				</Link>

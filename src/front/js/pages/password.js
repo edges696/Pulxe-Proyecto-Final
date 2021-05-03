@@ -39,7 +39,7 @@ export const Password = () => {
 							<div className="row mt-5">
 								<div className="col text-center">
 									<button type="submit" className="btn btn-danger">
-										Enviar
+										Cambiar contraseña
 									</button>
 								</div>
 							</div>

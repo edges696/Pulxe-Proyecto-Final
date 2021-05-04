@@ -9,13 +9,7 @@ export const Navbar = () => {
 			</Link>
 			<div className="ml-auto col-9 text-center">
 				<Link className="text-white nav-item ml-3" to="/">
-					Home
-				</Link>
-				<Link className="text-white nav-item ml-3" to="/">
-					Login
-				</Link>
-				<Link className="text-white nav-item ml-3" to="/registro">
-					Register
+					Inicio
 				</Link>
 				<Link className="text-white nav-item ml-3" to="/crearCuenta">
 					Crear Cuenta
@@ -24,7 +18,7 @@ export const Navbar = () => {
 					Pulxes
 				</Link>
 				<Link className="text-white nav-item ml-3" to="/password">
-					Cambio de Password
+					Cambio de Contraseña
 				</Link>
 			</div>
 		</nav>

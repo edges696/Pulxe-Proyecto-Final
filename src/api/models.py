@@ -36,7 +36,9 @@ class Pulxes(db.Model):
     descripcion = db.Column(db.String(300), nullable=False)
     añosEXP = db.Column(db.Integer, nullable=False)
     numero = db.Column(db.Integer, nullable=False)
-    calificacion = db.Column(db.Integer, nullable=False)
+    calificacionPromedio = db.Column(db.Integer, nullable=False)#divicion entre cantidad/to
+    calificacionCantidad = db.Column(db.Integer, nullable=False)
+    calificacionTotal = db.Column(db.Integer, nullable=False)
 
     def serialize(self):
         return {

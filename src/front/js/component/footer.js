@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export const Footer = () => (
 	<footer className="footer mt-auto py-3 text-left greenPulseBG">
 		<div className="container text-white">
-			<div className="col-4 float-left">
+			<div className="col-3 float-left">
 				<ul className="list-unstyled">
 					<li>
 						<a
@@ -43,8 +44,13 @@ export const Footer = () => (
 					</li>
 				</ul>
 			</div>
-			<div className="col-4 float-left pt-5">PROYECTO FINAL 4GEEKS 2021</div>
-			<div className="col-4 float-left">
+			<div className="col-3 float-left pt-5">PROYECTO FINAL 4GEEKS 2021</div>
+			<div className="col-3 float-left pt-5">
+				<Link className="btn btn-outline-light" to="/registro">
+					Registrarme como Pulxe
+				</Link>
+			</div>
+			<div className="col-3 float-left pt-2">
 				<img src="https://i.postimg.cc/RFGmYH6R/logo-Vacio.png" className="img-fluid" />
 			</div>
 		</div>

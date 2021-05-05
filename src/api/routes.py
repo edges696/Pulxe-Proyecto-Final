@@ -1,9 +1,20 @@
 """
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
+
+
 from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User, Pulxes, Categorias, Subcategorias
 from api.utils import generate_sitemap, APIException
+
+import os
+from flask_migrate import Migrate
+from flask_swagger import swagger
+from flask_cors import CORS
+from api.admin import setup_admin
+#from models import Person
+
+
 
 api = Blueprint('api', __name__)
 # generate sitemap with all your endpoints
@@ -31,7 +42,7 @@ def login():
     return jsonify({"token": access_token})
 
 #crea usuario----------------------------------------
-@api.route('/userCreate', methods=['POST'])
+@api.route('/user', methods=['POST'])
 def register_user():
     name = request.json.get("name", None)
     numero = request.json.get("numero", None)
@@ -44,7 +55,7 @@ def register_user():
     if mail is None:
         return jsonify({"msg": "No email was provided"}), 400
     if numero is None:
-        return jsonify({"msg": "No email was provided"}), 400
+        return jsonify({"msg": "No numero was provided"}), 400
     if password is None:
         return jsonify({"msg": "No password was provided"}), 400
     
@@ -62,7 +73,7 @@ def register_user():
         return jsonify({"msg": "User created successfully"}), 200
 
 #crea pulxe ----------------------------------------------------------
-@api.route('/pulxeCreate', methods=['POST'])
+@api.route('/pulxes', methods=['POST'])
 def pulxeCreate():
     nombre = request.json.get("nombre", None)
     pulxe = request.json.get("pulxe", None)
@@ -82,9 +93,9 @@ def pulxeCreate():
     if nombre is None:
         return jsonify({"msg": "No Name was provided"}), 400
     if pulxe is None:
-        return jsonify({"msg": "No email was provided"}), 400
+        return jsonify({"msg": "No pulxe was provided"}), 400
     if categoria is None:
-        return jsonify({"msg": "No email was provided"}), 400
+        return jsonify({"msg": "No categoria was provided"}), 400
     if canton is None:
         return jsonify({"msg": "No canton was provided"}), 400
     if distrito is None:
@@ -107,15 +118,15 @@ def pulxeCreate():
         return jsonify({"msg": "No password was provided"}), 400
     
     # busca pulxe en BBDD
-    pulxe = Pulxes.query.filter_by(password=password,nombre=nombre,numero=numero).first()
+    pulxes = Pulxes.query.filter_by(password=password,nombre=nombre,numero=numero).first()
      # the pulxe was not found on the database
-    if pulxe:
-        return jsonify({"msg": "User already exists"}), 401
+    if pulxes:
+        return jsonify({"msg": "Pulse already exists"}), 401
     else:
         # crea pulxe nuevo
         # crea registro nuevo en BBDD de 
-        pulxe = Pulxes(nombre=nombre, pulxe=pulxe, categoria=categoria, canton=canton, distrito=distrito, provincia=provincia, descripcion=descripcion,añosEXP=añosEXP,numero=numero,calificacionPromedio=calificacionPromedio,calificacionCantidad=calificacionCantidad,calificacionTotal=calificacionTotal,password=password)
-        db.session.add(pulxe)
+        pulxes = Pulxes(nombre=nombre, pulxe=pulxe, categoria=categoria, canton=canton, distrito=distrito, provincia=provincia, descripcion=descripcion,añosEXP=añosEXP,numero=numero,calificacionPromedio=calificacionPromedio,calificacionCantidad=calificacionCantidad,calificacionTotal=calificacionTotal,password=password)
+        db.session.add(pulxes)
         db.session.commit()
         return jsonify({"msg": "User created successfully"}), 200
 

@@ -9,6 +9,10 @@ import "../../styles/demo.scss";
 export const PulxesIndex = () => {
 	const { store, actions } = useContext(Context);
 
+	useEffect(() => {
+		actions.loadPulxes();
+	});
+
 	return (
 		<div>
 			<div className="col-12 p-0 bluePulxeBG py-4 text-center">

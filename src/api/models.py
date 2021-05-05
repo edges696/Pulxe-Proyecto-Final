@@ -39,6 +39,7 @@ class Pulxes(db.Model):
     calificacionPromedio = db.Column(db.Integer, nullable=False)#divicion entre cantidad/to
     calificacionCantidad = db.Column(db.Integer, nullable=False)
     calificacionTotal = db.Column(db.Integer, nullable=False)
+    password = db.Column(db.Integer, nullable=False)
 
     def serialize(self):
         return {
@@ -52,7 +53,9 @@ class Pulxes(db.Model):
             "descripcion": self.descripcion,
             "añosEXP": self.añosEXP,
             "numero": self.numero,
-            "calificacion": self.calificacion,
+            "calificacionPromedio": self.calificacionPromedio,
+            "calificacionCantidad": self.calificacionCantidad,
+            "calificacionTotal": self.calificacionTotal,
             # do not serialize the password, its a security breach
         }
 class Categorias(db.Model):

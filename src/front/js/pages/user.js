@@ -5,12 +5,6 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 export const User = () => {
-	const { store, actions } = useContext(Context);
-	const [name, setName] = useState("");
-	const [mail, setMail] = useState("");
-	const [password, setPassword] = useState("");
-	const [numero, setNumero] = useState("");
-
 	const [nameCrear, setNameCrear] = useState("");
 	const [mailCrear, setMailCrear] = useState("");
 	const [passwordCrear, setPasswordCrear] = useState("");
@@ -19,10 +13,10 @@ export const User = () => {
 
 	const crear = e => {
 		e.preventDefault();
-		const body = { name: nameCrear, mail: mailCrear, password: passwordCrear, numero: numeroCrear, name: user };
+		const body = { name: nameCrear, mail: mailCrear, password: passwordCrear, numero: numeroCrear };
 		console.log(body);
 
-		fetch("https://3001-blush-zebra-1ahcfx3z.ws-us03.gitpod.io/api/pulxes", {
+		fetch("https://3001-tan-porpoise-tasj15xn.ws-us03.gitpod.io/api/user", {
 			method: "POST",
 			body: JSON.stringify(body),
 			headers: { "Content-Type": "application/json" }
@@ -30,6 +24,7 @@ export const User = () => {
 			.then(res => res.json())
 			.then(data => {
 				sessionStorage.setItem("my_token", data.token);
+				console.log(sessionStorage);
 			})
 			.catch(err => console.log(err));
 	};
@@ -37,21 +32,6 @@ export const User = () => {
 	return (
 		<div className="container mt-5">
 			<div className="col-6 mx-auto rounded shadow py-4 bg-secondary text-white">
-				<nav className="col-12 text-center">
-					<div className="nav nav-tabs" id="nav-tab" role="tablist">
-						<a
-							className="active col-6 text-white"
-							id="nav-home-tab"
-							data-toggle="tab"
-							href="#nav-home"
-							role="tab"
-							aria-controls="nav-home"
-							aria-selected="true">
-							Crear Usuario
-						</a>
-					</div>
-				</nav>
-
 				<div className="tab-content" id="nav-tabContent">
 					<div
 						className="tab-pane fade show active"
@@ -59,7 +39,7 @@ export const User = () => {
 						role="tabpanel"
 						aria-labelledby="nav-home-tab">
 						<div className="col-12 text-center">
-							<h2 className="col-12">Login</h2>
+							<h2 className="col-12">crear usuario</h2>
 						</div>
 
 						<form onSubmit={crear}>
@@ -71,7 +51,7 @@ export const User = () => {
 								</div>
 								<input
 									id="name"
-									onChange={e => setName(e.target.value)}
+									onChange={e => setNameCrear(e.target.value)}
 									name="name"
 									type="text"
 									className="form-control"
@@ -89,7 +69,7 @@ export const User = () => {
 								</div>
 								<input
 									id="mail"
-									onChange={e => setMail(e.target.value)}
+									onChange={e => setMailCrear(e.target.value)}
 									name="mail"
 									type="text"
 									className="form-control"
@@ -107,7 +87,7 @@ export const User = () => {
 								</div>
 								<input
 									type="password"
-									onChange={e => setPassword(e.target.value)}
+									onChange={e => setPasswordCrear(e.target.value)}
 									id="password"
 									name="password"
 									className="form-control"
@@ -125,7 +105,7 @@ export const User = () => {
 								</div>
 								<input
 									id="numero"
-									onChange={e => setNumero(e.target.value)}
+									onChange={e => setNumeroCrear(e.target.value)}
 									name="numero"
 									type="text"
 									className="form-control"
@@ -142,6 +122,7 @@ export const User = () => {
 							</div>
 						</form>
 					</div>
+					<h1>cambio de contraseña</h1>
 				</div>
 			</div>
 		</div>

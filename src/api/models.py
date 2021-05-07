@@ -44,7 +44,7 @@ class Pulxes(db.Model):
     def serialize(self):
         return {
             "id": self.id,
-            "nombre": self.pulxe,
+            "nombre": self.nombre,
             "pulxe": self.pulxe,
             "categoria": self.categoria,
             "canton": self.canton,

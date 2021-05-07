@@ -32,8 +32,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ pulxes: results });
 			},
 			loadSitios: async () => {
-				const url = "https://ubicaciones.paginasweb.cr/provincias.json"; //url de API
+				const url =
+					"https://services.arcgis.com/LjCtRQt1uf8M6LGR/arcgis/rest/services/Provincias_CR/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json"; //url de API
 				const response = await fetch(url);
+				console.log(response);
 				const results = await response.json();
 				setStore({ ubicaciones: results });
 			}

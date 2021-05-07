@@ -85,3 +85,17 @@ a :hover{
     float: left;
     width: 16%;
 }
+/*---Star Rating ---*/
+
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.on {
+  color: #127864;
+}
+.off {
+  color: #ccc;
+}

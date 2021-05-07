@@ -11,17 +11,14 @@ export const Navbar = () => {
 				<Link className="text-white nav-item ml-3" to="/">
 					Inicio
 				</Link>
-				<Link className="text-white nav-item ml-3" to="/crearCuenta">
-					Crear Cuenta
-				</Link>
 				<Link className="text-white nav-item ml-3" to="/pulxesIndex">
 					Pulxes
 				</Link>
-				<Link className="text-white nav-item ml-3" to="/password">
-					Cambio de Contraseña
+				<Link className="text-white nav-item ml-3" to="/crearCuenta">
+					Crear Cuenta
 				</Link>
-				<Link className="text-white nav-item ml-3" to="/user">
-					User
+				<Link className="text-white nav-item ml-3" to="/login">
+					Login
 				</Link>
 			</div>
 		</nav>

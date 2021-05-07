@@ -3,9 +3,7 @@
 */
 body{
     color: #002538;
-}
-a :hover{
-    color:#117864!important
+    font-family: 'Roboto', sans-serif;
 }
 .greenPulseBG{
     background-color: #117864
@@ -34,7 +32,7 @@ a :hover{
 .yellow{
     color: gold;
 }
-.imgSingle{
+.imgSingle,.imgHome,.imgMecanica{
     height: 200px;
     width: 200px;
     border-radius: 50%;
@@ -44,6 +42,12 @@ a :hover{
     margin: 2% auto;
     border: 5px solid #fff;
     box-shadow: 0 0 5px #000;
+}
+.imgHome{
+    background-image: url("https://image.freepik.com/foto-gratis/carpintero-trabajando_23-2147773407.jpg");
+}
+.imgMecanica{
+    background-image: url("https://image.freepik.com/foto-gratis/carpintero-trabajando_23-2147773407.jpg");
 }
 .bgImgSingle{
     background-color: rgb(226, 223, 223);

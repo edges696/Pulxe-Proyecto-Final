@@ -10,7 +10,7 @@ import injectContext from "./store/appContext";
 import { Password } from "./pages/password";
 import { Registro } from "./pages/registro";
 import { CrearCuenta } from "./pages/crearCuenta";
-import { User } from "./pages/user";
+import { Login } from "./pages/login";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -45,8 +45,8 @@ const Layout = () => {
 						<Route exact path="/crearCuenta">
 							<CrearCuenta />
 						</Route>
-						<Route exact path="/user">
-							<User />
+						<Route exact path="/login">
+							<Login />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

@@ -82,6 +82,17 @@ export const Single = props => {
 							<div className="col-12 font-weight-bold float-left">Descripcion</div>
 							<div className="col-12 float-left">{store.pulxes[params.theid].descripcion}</div>
 						</div>
+						<div className="col-12">
+							<div className="col-12 ">
+								<span className="font-weight-bold"> Rango de Precio: </span>
+							</div>
+							<div className="col-12">
+								<span className="font-weight-bold">De: </span>{" "}
+								<span> {store.pulxes[params.theid].numero}</span>
+								<span className="font-weight-bold ml-3">A: </span>{" "}
+								<span> {store.pulxes[params.theid].numero}</span>
+							</div>
+						</div>
 						<div className="col-12 mt-1 text-center">
 							<div className="col-4 float-left text4r">
 								<a

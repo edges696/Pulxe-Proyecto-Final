@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
+import StarRating from "../component/StarRating";
 
 export const Single = props => {
 	const { store, actions } = useContext(Context);
@@ -29,11 +30,7 @@ export const Single = props => {
 						</div>
 						<div className="col-12 float-left text-center">
 							<div className="col-12 float-left font-weight-bold">
-								Calificación
-								<span className="ml-2">
-									{store.pulxes[params.theid].calificacion}
-									<i className="fas fa-star yellow" />
-								</span>
+								Calificación <StarRating />
 							</div>
 						</div>
 					</div>
@@ -94,7 +91,7 @@ export const Single = props => {
 							</div>
 						</div>
 						<div className="col-12 mt-1 text-center">
-							<div className="col-4 float-left text4r">
+							<div className="col-3 float-left text4r">
 								<a
 									href={whatsapp}
 									id="ws"
@@ -104,19 +101,24 @@ export const Single = props => {
 									<i className="fab fa-whatsapp" />
 								</a>
 							</div>
-							<div className="col-4 float-left text4r">
+							<div className="col-3 float-left text4r">
 								<a href={llamar} className="llamadaColorText">
 									<i className="fas fa-phone" />
 								</a>
 							</div>
-							<div className="col-4 float-left text4r">
+							<div className="col-3 float-left text4r">
 								<a
 									href={whatsapp}
 									id="ws"
 									className="wsColorText"
 									target="_blank"
 									rel="noopener noreferrer">
-									<i className="fab fa-whatsapp" />
+									<i className="far fa-envelope" />
+								</a>
+							</div>
+							<div className="col-3 float-left text4r">
+								<a href={llamar} className="llamadaColorText">
+									<i className="far fa-thumbs-up" />
 								</a>
 							</div>
 						</div>

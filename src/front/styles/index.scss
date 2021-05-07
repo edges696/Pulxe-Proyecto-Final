@@ -36,7 +36,7 @@ body{
     height: 200px;
     width: 200px;
     border-radius: 50%;
-    background-image: url("https://image.freepik.com/foto-gratis/carpintero-trabajando_23-2147773407.jpg");
+    background-image: url("https://pics.freeicons.io/uploads/icons/png/18279578471579252553-512.png");
     background-size: cover;
     background-position: center;
     margin: 2% auto;
@@ -88,4 +88,18 @@ body{
 .listFilter li{
     float: left;
     width: 16%;
+}
+/*---Star Rating ---*/
+
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.on {
+  color: #127864;
+}
+.off {
+  color: #ccc;
 }

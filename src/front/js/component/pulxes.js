@@ -45,10 +45,6 @@ export const Pulxes = props => {
 								<div className="col-6 float-left">{props.añosEXP}</div>
 							</div>
 							<div className="col-12">
-								<div className="col-6 float-left font-weight-bold">Numero</div>
-								<div className="col-6 float-left">{props.numero}</div>
-							</div>
-							<div className="col-12">
 								<div className="col-6 float-left font-weight-bold">Calificación</div>
 								<div className="col-6 float-left">{props.calificacion}</div>
 							</div>

@@ -1,10 +1,37 @@
-import React, { useContext, useDebugValue } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import "../../styles/home.scss";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
-import "../../styles/home.scss";
+import PropTypes from "prop-types";
+import { Redirect } from "react-router-dom";
 
 export const CrearCuenta = () => {
 	const { store, actions } = useContext(Context);
+	const [nameCrear, setNameCrear] = useState("");
+	const [mailCrear, setMailCrear] = useState("");
+	const [passwordCrear, setPasswordCrear] = useState("");
+	const [numeroCrear, setNumeroCrear] = useState("");
+	const [auth, setAuth] = useState(false);
+
+	const crear = e => {
+		e.preventDefault();
+		const body = { name: nameCrear, mail: mailCrear, password: passwordCrear, numero: numeroCrear };
+		console.log(body);
+
+		fetch("https://3001-tan-porpoise-tasj15xn.ws-us03.gitpod.io/api/user", {
+			method: "POST",
+			body: JSON.stringify(body),
+			headers: { "Content-Type": "application/json" }
+		})
+			.then(res => res.json())
+			.then(data => {
+				sessionStorage.setItem("my_token", data.token);
+				console.log(sessionStorage);
+				setAuth(true);
+			})
+			.catch(err => console.log(err));
+	};
+
 	return (
 		<div className="container mt-5">
 			<div className="col text-center mt-9">
@@ -15,13 +42,15 @@ export const CrearCuenta = () => {
 				<h4>Datos de Cuenta</h4>
 			</div>
 
-			<form>
+			<form onSubmit={crear}>
 				<div className="input-group mb-3">
 					<span className="input-group-text" id="basic-addon1">
 						Nombre completo
 					</span>
 					<input
 						type="text"
+						required
+						onChange={e => setNameCrear(e.target.value)}
 						className="form-control"
 						placeholder="Nombre y apellidos"
 						aria-label="Username"
@@ -35,6 +64,8 @@ export const CrearCuenta = () => {
 					</span>
 					<input
 						type="email"
+						required
+						onChange={e => setMailCrear(e.target.value)}
 						className="form-control"
 						placeholder="usuario@ejemplo.com"
 						aria-label="Username"
@@ -47,7 +78,9 @@ export const CrearCuenta = () => {
 						Número de teléfono
 					</span>
 					<input
-						type="text"
+						type="number"
+						required
+						onChange={e => setNumeroCrear(e.target.value)}
 						className="form-control"
 						placeholder="Número de teléfono para contacto"
 						aria-label="Username"
@@ -60,7 +93,9 @@ export const CrearCuenta = () => {
 						Contraseña
 					</span>
 					<input
-						type="text"
+						type="password"
+						required
+						onChange={e => setPasswordCrear(e.target.value)}
 						className="form-control"
 						placeholder="Contraseña"
 						aria-label="password"
@@ -73,6 +108,7 @@ export const CrearCuenta = () => {
 					</span>
 					<input
 						type="text"
+						required
 						className="form-control"
 						placeholder="Confirmar Contraseña"
 						aria-label="confirm password"
@@ -90,6 +126,7 @@ export const CrearCuenta = () => {
 					</div>
 				</div>
 			</form>
+			{auth ? <Redirect to="/" /> : null}
 		</div>
 	);
 };

@@ -73,7 +73,7 @@ export const Home = () => {
 					</div>
 				</div>
 				<div className="col-12 text-center">
-					<Link to="/" className="btn btn-danger" data-aos="zoom-in">
+					<Link to="/crearCuenta" className="btn btn-danger" data-aos="zoom-in">
 						Crear Mi Cuenta
 					</Link>
 				</div>
@@ -87,6 +87,11 @@ export const Home = () => {
 						Un Pulxe, es una persona que te ayuda en tus necesidades cotidianas, bridandote asistencia
 						personalizada en labores y servicios ocacionales en tu hogar u oficina
 					</p>
+					<div className="col-12">
+						<Link className="btn btn-danger" to="/pulxesIndex" data-aos="zoom-in">
+							Encontar un Pulxe
+						</Link>
+					</div>
 				</div>
 			</div>
 			<div className="bluePulxeBG row p-0 m-0 py-5 text-white text-center">

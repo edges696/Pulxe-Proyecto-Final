@@ -156,7 +156,7 @@ export const Home = () => {
 							<i className="fas fa-running" />
 						</div>
 						<div className="col-12 mb-3">
-							<h3>Entrenador Personal</h3>
+							<h3>Entrenamiento Personal</h3>
 						</div>
 						<div className="col-12">
 							En Pulxe puedes encontrar a personas espcializadas en dar entrenamientos fisicos a domicilio
@@ -183,7 +183,7 @@ export const Home = () => {
 				<div className="col-6 float-left greyLight">
 					<p data-aos="fade-up">
 						Si es un pulseador o pulseadora y tiene un servicio ocacional que ofrecer, esta es la plataforma
-						que estaba buscando para llegar a más clientes. Pulxe es totlamente gratuito!
+						que estaba buscando para llegar a más clientes. Pulxe es totalmente gratuito!
 					</p>
 					<div className="col-12">
 						<Link to="/registro" className="btn btn-danger" data-aos="zoom-in">

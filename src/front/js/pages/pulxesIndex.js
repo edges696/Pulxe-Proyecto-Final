@@ -39,7 +39,7 @@ export const PulxesIndex = () => {
 					</li>
 					<li>
 						<a href="#" className="text-white" id="entrenador">
-							Entrenador Personal
+							Entrenamiento Personal
 						</a>
 					</li>
 					<li>

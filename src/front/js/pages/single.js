@@ -107,12 +107,7 @@ export const Single = props => {
 								</a>
 							</div>
 							<div className="col-3 float-left text4r">
-								<a
-									href={whatsapp}
-									id="ws"
-									className="wsColorText"
-									target="_blank"
-									rel="noopener noreferrer">
+								<a id="mu" className="wsColorText" target="_blank" rel="noopener noreferrer">
 									<i className="far fa-envelope" />
 								</a>
 							</div>

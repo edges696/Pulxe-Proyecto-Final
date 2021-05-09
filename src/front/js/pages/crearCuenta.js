@@ -117,11 +117,14 @@ export const CrearCuenta = () => {
 				</div>
 
 				<div className="container">
-					<div className="row mt-5">
+					<div className="row my-5">
 						<div className="col text-center">
 							<button type="submit" className="btn btn-primary">
 								Crear Cuenta
 							</button>
+						</div>
+						<div className="col-12 text-center mt-3">
+							<Link to="/registro">Registrarme como Pulxe</Link>
 						</div>
 					</div>
 				</div>

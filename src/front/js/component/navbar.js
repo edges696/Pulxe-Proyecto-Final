@@ -18,7 +18,7 @@ export const Navbar = () => {
 					Crear Cuenta
 				</Link>
 				<Link className="text-white nav-item ml-3" to="/login">
-					Login
+					Ingresar
 				</Link>
 			</div>
 		</nav>

@@ -27,8 +27,6 @@ def sitemap():
 #obtener usuario de base de datos y crea token
 @api.route('/login', methods=['POST'])
 def login():
-    name = request.json.get("name", None)
-    numero = request.json.get("numero", None)
     mail = request.json.get("mail", None)
     password = request.json.get("password", None)
 

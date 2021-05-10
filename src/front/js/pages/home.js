@@ -1,11 +1,15 @@
-import React, { useContext, useDebugValue } from "react";
+import React, { useContext, useDebugValue, useEffect } from "react";
 import { Context } from "../store/appContext";
+import AOS from "aos";
+import "../../../../node_modules/aos/dist/aos.css";
 import { Link } from "react-router-dom";
 import "../../styles/home.scss";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
-
+	useEffect(() => {
+		AOS.init({ duration: 1500 });
+	}, []);
 	return (
 		<div className="container-fluid p-0">
 			<div className="row imgPrincipal p-0 m-0">

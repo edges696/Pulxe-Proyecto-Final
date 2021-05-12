@@ -26,7 +26,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(error => console.log("Error loading message from backend", error));
 			},
 			loadPulxes: async () => {
-				const url = "https://3001-brown-cheetah-sccsznvs.ws-us03.gitpod.io/api/pulxes"; //url de backend
+				const url = "https://3001-apricot-dog-ur57rk6z.ws-us04.gitpod.io/api/pulxes"; //url de backend
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ pulxes: results });

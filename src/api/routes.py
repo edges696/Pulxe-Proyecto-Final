@@ -12,8 +12,12 @@ from flask_migrate import Migrate
 from flask_swagger import swagger
 from flask_cors import CORS
 from api.admin import setup_admin
+from flask_jwt_extended import create_access_token
 #from models import Person
 
+#import JWT for tokenization
+from flask_jwt_extended import jwt_required, get_jwt_identity, create_access_token
+from flask_jwt_extended import JWTManager
 
 
 api = Blueprint('api', __name__)
@@ -25,12 +29,15 @@ def sitemap():
 #-----metodos post-------------------------------------
 
 #obtener usuario de base de datos y crea token
-@api.route('/login', methods=['POST'])
+@api.route('/login', methods=['POST']) 
 def login():
     mail = request.json.get("mail", None)
     password = request.json.get("password", None)
 
-    user = User.query.filter_by(name=name,mail=mail, password=password).first()
+    print(mail)
+    print(password)
+
+    user = User.query.filter_by(mail=mail, password=password).first()
     # valida si estan vacios los ingresos
     if user is None:
        return jsonify({"msg": "Bad mail or password"}), 401
@@ -72,6 +79,7 @@ def register_user():
 
 #crea pulxe ----------------------------------------------------------
 @api.route('/pulxes', methods=['POST'])
+@jwt_required()
 def pulxeCreate():
     nombre = request.json.get("nombre", None)
     pulxe = request.json.get("pulxe", None)

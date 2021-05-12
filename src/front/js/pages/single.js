@@ -107,9 +107,14 @@ export const Single = props => {
 								</a>
 							</div>
 							<div className="col-3 float-left text4r">
-								<a id="mu" className="wsColorText" target="_blank" rel="noopener noreferrer">
-									<i className="far fa-envelope" />
-								</a>
+								{/* Trigger del Boton*/}
+
+								<button
+									type="button"
+									className="far fa-envelope llamadaColorText"
+									data-toggle="modal"
+									data-target="#exampleModal"
+								/>
 							</div>
 							<div className="col-3 float-left text4r">
 								<a href={llamar} className="llamadaColorText">
@@ -124,6 +129,53 @@ export const Single = props => {
 				<Link to="/pulxesIndex" className="btn btn-danger">
 					Regresar al Directorio
 				</Link>
+			</div>
+			{/* Trigger del Modal*/}
+			<div
+				className="modal fade"
+				id="exampleModal"
+				tabIndex="-1"
+				role="dialog"
+				aria-labelledby="exampleModalLabel"
+				aria-hidden="true">
+				<div className="modal-dialog" role="document">
+					<div className="modal-content">
+						<div className="modal-header">
+							<h5 className="modal-title font-weight-bolder" id="exampleModalLabel">
+								{" "}
+								Comunícate en instantes con {store.pulxes[params.theid].nombre}{" "}
+							</h5>
+							<button type="button" className="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div className="modal-body">
+							<form>
+								<div className="form-group">
+									<label htmlFor="exampleFormControlInput1">Nombre</label>
+									<input
+										type="email"
+										className="form-control"
+										id="exampleFormControlInput1"
+										placeholder="Escribe tu Nombre"
+									/>
+								</div>
+								<div className="form-group">
+									<label htmlFor="exampleFormControlTextarea1">Escribe tu Mensaje</label>
+									<textarea className="form-control" id="exampleFormControlTextarea1" rows="3" />
+								</div>
+							</form>
+						</div>
+						<div className="modal-footer">
+							<button type="button" className="btn btn-danger" data-dismiss="modal">
+								Cancelar
+							</button>
+							<button type="button" className="btn btn-success">
+								Enviar Mensaje
+							</button>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	);

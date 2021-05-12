@@ -34,7 +34,7 @@ class Pulxes(db.Model):
     distrito = db.Column(db.String(250), nullable=False)
     provincia = db.Column(db.String(250), nullable=False)
     descripcion = db.Column(db.String(300), nullable=False)
-    añosEXP = db.Column(db.Integer, nullable=False)
+    experiencia = db.Column(db.Integer, nullable=False)
     numero = db.Column(db.Integer, nullable=False)
     calificacionPromedio = db.Column(db.Integer, nullable=False)#divicion entre cantidad/to
     calificacionCantidad = db.Column(db.Integer, nullable=False)
@@ -51,7 +51,7 @@ class Pulxes(db.Model):
             "distrito": self.distrito,
             "provincia": self.provincia,
             "descripcion": self.descripcion,
-            "añosEXP": self.añosEXP,
+            "experiencia": self.experiencia,
             "numero": self.numero,
             "calificacionPromedio": self.calificacionPromedio,
             "calificacionCantidad": self.calificacionCantidad,

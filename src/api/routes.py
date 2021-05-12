@@ -46,6 +46,7 @@ def register_user():
     numero = request.json.get("numero", None)
     mail = request.json.get("mail", None)
     password = request.json.get("password", None)
+    
 
     # valida si estan vacios los ingresos
     if name is None:
@@ -56,6 +57,7 @@ def register_user():
         return jsonify({"msg": "No numero was provided"}), 400
     if password is None:
         return jsonify({"msg": "No password was provided"}), 400
+    
     
     # busca usuario en BBDD
     user = User.query.filter_by(password=password,mail=mail).first()
@@ -80,7 +82,7 @@ def pulxeCreate():
     distrito = request.json.get("distrito", None)
     provincia = request.json.get("provincia", None)
     descripcion = request.json.get("descripcion", None)
-    añosEXP = request.json.get("añosEXP", None)
+    experiencia = request.json.get("experiencia", None)
     numero = request.json.get("numero", None)
     calificacionPromedio = request.json.get("calificacionPromedio", None)
     calificacionCantidad = request.json.get("calificacionCantidad", None)
@@ -102,7 +104,7 @@ def pulxeCreate():
         return jsonify({"msg": "No provincia was provided"}), 400
     if descripcion is None:
         return jsonify({"msg": "No descripcion was provided"}), 400
-    if añosEXP is None:
+    if experiencia is None:
         return jsonify({"msg": "No añosEXP was provided"}), 400
     if numero is None:
         return jsonify({"msg": "No numero was provided"}), 400
@@ -123,7 +125,7 @@ def pulxeCreate():
     else:
         # crea pulxe nuevo
         # crea registro nuevo en BBDD de 
-        pulxes = Pulxes(nombre=nombre, pulxe=pulxe, categoria=categoria, canton=canton, distrito=distrito, provincia=provincia, descripcion=descripcion,añosEXP=añosEXP,numero=numero,calificacionPromedio=calificacionPromedio,calificacionCantidad=calificacionCantidad,calificacionTotal=calificacionTotal,password=password)
+        pulxes = Pulxes(nombre=nombre, pulxe=pulxe, categoria=categoria, canton=canton, distrito=distrito, provincia=provincia, descripcion=descripcion,experiencia=experiencia,numero=numero,calificacionPromedio=calificacionPromedio,calificacionCantidad=calificacionCantidad,calificacionTotal=calificacionTotal,password=password)
         db.session.add(pulxes)
         db.session.commit()
         return jsonify({"msg": "User created successfully"}), 200

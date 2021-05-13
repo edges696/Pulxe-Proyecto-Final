@@ -115,12 +115,6 @@ def pulxeCreate():
         return jsonify({"msg": "No añosEXP was provided"}), 400
     if numero is None:
         return jsonify({"msg": "No numero was provided"}), 400
-    if calificacionPromedio is None:
-        return jsonify({"msg": "No calificacionPromedio was provided"}), 400
-    if calificacionCantidad is None:
-        return jsonify({"msg": "No calificacionCantidad was provided"}), 400
-    if calificacionTotal is None:
-        return jsonify({"msg": "No calificacionTotal was provided"}), 400
     if password is None:
         return jsonify({"msg": "No password was provided"}), 400
     

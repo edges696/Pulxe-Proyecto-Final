@@ -42,7 +42,7 @@ export const Pulxes = props => {
 							</div>
 							<div className="col-12">
 								<div className="col-6 float-left font-weight-bold">Años EXP</div>
-								<div className="col-6 float-left">{props.añosEXP}</div>
+								<div className="col-6 float-left">{props.experiencia}</div>
 							</div>
 							<div className="col-12">
 								<div className="col-6 float-left font-weight-bold">Calificación</div>
@@ -68,7 +68,7 @@ Pulxes.propTypes = {
 	canton: PropTypes.string,
 	distrito: PropTypes.string,
 	provincia: PropTypes.string,
-	añosEXP: PropTypes.number,
+	experiencia: PropTypes.number,
 	numero: PropTypes.number,
 	calificacion: PropTypes.number,
 	id: PropTypes.number

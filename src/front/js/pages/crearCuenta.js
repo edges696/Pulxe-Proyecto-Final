@@ -18,7 +18,7 @@ export const CrearCuenta = () => {
 		const body = { name: nameCrear, mail: mailCrear, password: passwordCrear, numero: numeroCrear };
 		console.log(body);
 
-		fetch("https://3001-azure-dormouse-1ytrzaox.ws-us04.gitpod.io/api/user", {
+		fetch("https://3001-coffee-catfish-5l5x60j3.ws-us04.gitpod.io/api/user", {
 			method: "POST",
 			body: JSON.stringify(body),
 			headers: { "Content-Type": "application/json" }
@@ -27,6 +27,7 @@ export const CrearCuenta = () => {
 			.then(data => {
 				sessionStorage.setItem("my_token", data.token);
 				console.log(sessionStorage);
+				alert("Tu cuenta de ha creado con exito, Bienvenido");
 				setAuth(true);
 			})
 			.catch(err => console.log(err));
@@ -129,7 +130,7 @@ export const CrearCuenta = () => {
 					</div>
 				</div>
 			</form>
-			{auth ? <Redirect to="/" /> : null}
+			{auth ? <Redirect to="/pulxesIndex" /> : null}
 		</div>
 	);
 };

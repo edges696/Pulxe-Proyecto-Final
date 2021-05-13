@@ -35,10 +35,10 @@ class Pulxes(db.Model):
     descripcion = db.Column(db.String(300), nullable=False)
     experiencia = db.Column(db.Integer, nullable=False)
     numero = db.Column(db.Integer, nullable=False)
-    calificacionPromedio = db.Column(db.Integer, nullable=False)#divicion entre cantidad/to
-    calificacionCantidad = db.Column(db.Integer, nullable=False)
-    calificacionTotal = db.Column(db.Integer, nullable=False)
-    password = db.Column(db.Integer, nullable=False)
+    calificacionPromedio = db.Column(db.Integer, nullable=True)#divicion entre cantidad/to
+    calificacionCantidad = db.Column(db.Integer, nullable=True)
+    calificacionTotal = db.Column(db.Integer, nullable=True)
+    password = db.Column(db.String, nullable=False)
 
     def serialize(self):
         return {

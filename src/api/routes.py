@@ -81,7 +81,6 @@ def register_user():
 
 #crea pulxe ----------------------------------------------------------
 @api.route('/pulxes', methods=['POST'])
-@jwt_required()
 def pulxeCreate():
     nombre = request.json.get("nombre", None)
     pulxe = request.json.get("pulxe", None)

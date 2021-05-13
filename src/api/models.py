@@ -57,6 +57,8 @@ class Pulxes(db.Model):
             "calificacionTotal": self.calificacionTotal,
             # do not serialize the password, its a security breach
         }
+
+
 class Categorias(db.Model):
     __tablename__ = 'categorias'
     id = db.Column(db.Integer, primary_key=True)
@@ -69,6 +71,9 @@ class Categorias(db.Model):
             "nombre_categoria": self.nombre_categoria,
             # do not serialize the password, its a security breach
         }
+
+
+
 class Subcategorias(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)

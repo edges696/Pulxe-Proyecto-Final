@@ -19,7 +19,6 @@ export const PulxesIndex = () => {
 		let count = store.pulxes.length;
 		for (let i = 0; i < count; i++) {
 			let title = e.target.text;
-			let idCount = document.getElementById("pulxe" + i).classList.value;
 			let idCambio = document.getElementById("pulxe" + i);
 
 			if (document.querySelector("#pulxe" + i).classList.contains(title)) {
@@ -84,7 +83,7 @@ export const PulxesIndex = () => {
 							provincia={item.provincia}
 							distrito={item.distrito}
 							canton={item.canton}
-							añosEXP={item.añosEXP}
+							experiencia={item.experiencia}
 							numero={item.numero}
 							calificacion={item.calificacion}
 							id={index}

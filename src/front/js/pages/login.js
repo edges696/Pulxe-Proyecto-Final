@@ -15,7 +15,7 @@ export const Login = () => {
 		e.preventDefault();
 		const body = { mail: mail, password: password };
 		console.log(body);
-		fetch("https://3001-azure-dormouse-1ytrzaox.ws-us04.gitpod.io/api/login", {
+		fetch("https://3001-coffee-catfish-5l5x60j3.ws-us04.gitpod.io/api/login", {
 			method: "POST",
 			body: JSON.stringify(body),
 			headers: { "Content-Type": "application/json" }

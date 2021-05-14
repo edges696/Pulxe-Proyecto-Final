@@ -16,9 +16,6 @@ export const Registro = () => {
 	const [descripcionCrear, setDescripcionCrear] = useState("");
 	const [experienciaCrear, setExperienciaCrear] = useState("");
 	const [numeroCrear, setNumeroCrear] = useState("");
-	const [calificacionPromedioCrear, setCalificacionPromedioCrear] = useState("");
-	const [calificacionCantidadCrear, setCalificacionCantidadCrear] = useState("");
-	const [calificacionTotalCrear, setCalificacionTotalCrear] = useState("");
 	const [passwordCrear, setPasswordCrear] = useState("");
 	const [auth, setAuth] = useState(false);
 
@@ -34,14 +31,12 @@ export const Registro = () => {
 			descripcion: descripcionCrear,
 			experiencia: experienciaCrear,
 			numero: numeroCrear,
-			calificacionPromedio: calificacionPromedioCrear,
-			calificacionCantidad: calificacionCantidadCrear,
-			calificacionTotal: calificacionTotalCrear,
-			password: passwordCrear
+			password: String(passwordCrear)
 		};
 		console.log(body);
+		console.log(body.password);
 
-		fetch("https://3001-azure-dormouse-1ytrzaox.ws-us04.gitpod.io/api/pulxes", {
+		fetch("https://3001-coffee-catfish-5l5x60j3.ws-us04.gitpod.io/api/pulxes", {
 			method: "POST",
 			body: JSON.stringify(body),
 			headers: { "Content-Type": "application/json" }
@@ -50,11 +45,11 @@ export const Registro = () => {
 			.then(data => {
 				sessionStorage.setItem("my_token", data.token);
 				console.log(sessionStorage);
+				alert("Tu cuenta de ha creado con exito, Bienvenido");
 				setAuth(true);
 			})
 			.catch(err => console.log(err));
 	};
-
 	return (
 		<div className="container mt-5">
 			<div className="col text-center mt-9">
@@ -66,7 +61,7 @@ export const Registro = () => {
 				</div>
 				<form onSubmit={crear}>
 					<div className="input-group mb-3">
-						<span className="input-group-text" id="basic-addon1">
+						<span className="input-group-text" id="nombre">
 							Nombre completo
 						</span>
 						<input
@@ -75,34 +70,47 @@ export const Registro = () => {
 							onChange={e => setNombreCrear(e.target.value)}
 							className="form-control"
 							placeholder="Nombre y apellidos"
-							aria-label="Username"
-							aria-describedby="basic-addon1"
+							aria-label="nombre"
+							aria-describedby="nombre"
 						/>
 					</div>
-
 					<div className="input-group mb-3">
-						<label className="input-group-text">Pulxe</label>
-						<select
-							className="form-control"
-							id="inputGroupSelect01"
+						<span className="input-group-text" id="numero">
+							Número
+						</span>
+						<input
+							type="number"
 							required
-							value={pulxeCrear}
-							onChange={e => setPulxeCrear(e.target.value)}>
-							<option selected>Seleccione un Pulxe</option>
-							<option value="Remodelación">Remodelación</option>
-							<option value="Pintura">Pintura</option>
-							<option value="Pisos">Pisos</option>
-							<option value="Enchapes">Enchapes</option>
-							<option value="Goteras">Goteras</option>
-							<option value="Jardín">Jardín</option>
-						</select>
+							minLength="8"
+							onChange={e => setNumeroCrear(e.target.value)}
+							className="form-control"
+							placeholder="numero de celuar"
+							aria-label="numero"
+							aria-describedby="numero"
+						/>
 					</div>
-
+					<div className="input-group mb-3">
+						<span className="input-group-text" id="experiencia">
+							Años de Experiencia
+						</span>
+						<input
+							type="number"
+							required
+							onChange={e => setExperienciaCrear(e.target.value)}
+							className="form-control"
+							placeholder="Años cumplidos de brindar el servicio"
+							aria-label="experiencia"
+							aria-describedby="experiencia"
+						/>
+					</div>
+					<div className="col-12 text-left mt-9">
+						<h4>Datos del servicio</h4>
+					</div>
 					<div className="input-group mb-3">
 						<label className="input-group-text">Categoría</label>
 						<select
 							className="form-control"
-							id="inputGroupSelect01"
+							id="categoria"
 							required
 							value={categoriaCrear}
 							onChange={e => setCategoriaCrear(e.target.value)}>
@@ -115,150 +123,91 @@ export const Registro = () => {
 							<option value="Belleza">Belleza</option>
 						</select>
 					</div>
-
-					<div className="col-sm">
-						<div className="input-group mb-3">
-							<label className="input-group-text">Provincia</label>
-							<select
-								className="form-control"
-								id="inputGroupSelect01"
-								required
-								value={provinciaCrear}
-								onChange={e => setProvinciaCrear(e.target.value)}>
-								<option selected>Seleccione</option>
-								<option value="1">San José</option>
-								<option value="2">Alajuela</option>
-								<option value="3">Heredia</option>
-								<option value="3">Cartago</option>
-								<option value="3">Puntarenas</option>
-								<option value="3">Limón</option>
-								<option value="3">Guanacaste</option>
-							</select>
-						</div>
-					</div>
-
-					<div className="col-sm">
-						<div className="col-sm">
-							<div className="input-group mb-3">
-								<label className="input-group-text">Cantón</label>
-								<select
-									className="form-control"
-									id="inputGroupSelect01"
-									required
-									value={cantonCrear}
-									onChange={e => setCantonCrear(e.target.value)}>
-									<option selected>Seleccione</option>
-									<option value="1">San José</option>
-								</select>
-							</div>
-						</div>
-					</div>
-
-					<div className="col-sm">
-						<div className="col-sm">
-							<div className="input-group mb-3">
-								<label className="input-group-text">Distrito</label>
-								<select
-									className="form-control"
-									id="inputGroupSelect01"
-									required
-									value={distritoCrear}
-									onChange={e => setDistritoCrear(e.target.value)}>
-									<option selected>Seleccione</option>
-									<option value="1">Uruca</option>
-								</select>
-							</div>
-						</div>
-					</div>
-
 					<div className="input-group mb-3">
-						<span className="input-group-text" id="basic-addon1">
+						<label className="input-group-text">Pulxe</label>
+						<select
+							className="form-control"
+							id="pulxe"
+							required
+							value={pulxeCrear}
+							onChange={e => setPulxeCrear(e.target.value)}>
+							<option selected>Seleccione un Pulxe</option>
+							<option value="Remodelación">Remodelación</option>
+							<option value="Pintura">Pintura</option>
+							<option value="Pisos">Pisos</option>
+							<option value="Enchapes">Enchapes</option>
+							<option value="Goteras">Goteras</option>
+							<option value="Jardín">Jardín</option>
+						</select>
+					</div>
+					<div className="input-group mb-3">
+						<span className="input-group-text" id="descripcion">
 							Descripción
 						</span>
-						<input
+						<textarea
 							type="text"
+							rows="5"
 							required
+							maxLength="200"
 							onChange={e => setDescripcionCrear(e.target.value)}
 							className="form-control"
-							placeholder="Años cumplidos de brindar el servicio"
+							placeholder="Describa el servicio que usted brinda *máximo 200 caracteres"
 							aria-label="Username"
-							aria-describedby="basic-addon1"
+							aria-describedby="descripcion"
 						/>
+					</div>
+					<div className="col-12 text-right">
+						<span id="cantidadLetras" className="badge badge-pill badge-light">
+							Llevas {descripcionCrear.length} Caracteres{" "}
+						</span>
+					</div>
+					<div className="col text-left mt-9">
+						<h4>Ubicación del servicio</h4>
 					</div>
 
 					<div className="input-group mb-3">
-						<span className="input-group-text" id="basic-addon1">
-							Años de Experiencia
-						</span>
-						<input
-							type="text"
-							required
-							onChange={e => setExperienciaCrear(e.target.value)}
+						<label className="input-group-text">Provincia</label>
+						<select
 							className="form-control"
-							placeholder="Años cumplidos de brindar el servicio"
-							aria-label="Username"
-							aria-describedby="basic-addon1"
-						/>
+							id="provincia"
+							required
+							value={provinciaCrear}
+							onChange={e => setProvinciaCrear(e.target.value)}>
+							<option selected>Seleccione</option>
+							<option value="1">San José</option>
+							<option value="2">Alajuela</option>
+							<option value="3">Heredia</option>
+							<option value="3">Cartago</option>
+							<option value="3">Puntarenas</option>
+							<option value="3">Limón</option>
+							<option value="3">Guanacaste</option>
+						</select>
 					</div>
 
 					<div className="input-group mb-3">
-						<span className="input-group-text" id="basic-addon1">
-							Número
-						</span>
-						<input
-							type="text"
-							required
-							onChange={e => setNumeroCrear(e.target.value)}
+						<label className="input-group-text">Cantón</label>
+						<select
 							className="form-control"
-							placeholder="Nombre y apellidos"
-							aria-label="Username"
-							aria-describedby="basic-addon1"
-						/>
+							id="canton"
+							required
+							value={cantonCrear}
+							onChange={e => setCantonCrear(e.target.value)}>
+							<option selected>Seleccione</option>
+							<option value="1">San José</option>
+						</select>
 					</div>
 
 					<div className="input-group mb-3">
-						<span className="input-group-text" id="basic-addon1">
-							Calificación Promedio
-						</span>
-						<input
-							type="text"
-							required
-							onChange={e => setCalificacionPromedioCrear(e.target.value)}
+						<label className="input-group-text">Distrito</label>
+						<select
 							className="form-control"
-							placeholder="Nombre y apellidos"
-							aria-label="Username"
-							aria-describedby="basic-addon1"
-						/>
-					</div>
-
-					<div className="input-group mb-3">
-						<span className="input-group-text" id="basic-addon1">
-							Calificación Cantidad
-						</span>
-						<input
-							type="text"
+							id="Distrito"
 							required
-							onChange={e => setCalificacionCantidadCrear(e.target.value)}
-							className="form-control"
-							placeholder="Nombre y apellidos"
-							aria-label="Username"
-							aria-describedby="basic-addon1"
-						/>
-					</div>
-
-					<div className="input-group mb-3">
-						<span className="input-group-text" id="basic-addon1">
-							Calificación Total
-						</span>
-						<input
-							type="text"
-							required
-							onChange={e => setCalificacionTotalCrear(e.target.value)}
-							className="form-control"
-							placeholder="Nombre y apellidos"
-							aria-label="Username"
-							aria-describedby="basic-addon1"
-						/>
+							value={distritoCrear}
+							onChange={e => setDistritoCrear(e.target.value)}>
+							<option selected>Seleccione</option>
+							<option value="1">Uruca</option>
+						</select>
 					</div>
 
 					<div className="input-group mb-3">
@@ -266,22 +215,22 @@ export const Registro = () => {
 							Password
 						</span>
 						<input
-							type="text"
+							type="password"
+							minLength="8"
+							pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
 							required
 							onChange={e => setPasswordCrear(e.target.value)}
 							className="form-control"
-							placeholder="Nombre y apellidos"
-							aria-label="Username"
+							placeholder="Contraseña"
+							aria-label="contraseña"
 							aria-describedby="basic-addon1"
 						/>
 					</div>
-
-					<div className="col text-left mt-9">
-						<h4>Datos del servicio</h4>
-					</div>
-
-					<div className="col text-left mt-9">
-						<h4>Ubicación del servicio</h4>
+					<div className="col-12">
+						<span className="badge badge-pill badge-light">
+							*La contraseña debe contener 8 o más caracteres de al menos un número y una letra mayúscula
+							y minúscula
+						</span>
 					</div>
 
 					<div className="container">
@@ -294,6 +243,7 @@ export const Registro = () => {
 						</div>
 					</div>
 				</form>
+				{auth ? <Redirect to="/pulxesIndex" /> : null}
 			</div>
 		</div>
 	);

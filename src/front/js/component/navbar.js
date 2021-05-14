@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
 
 export const Navbar = () => {
+	const { store, actions } = useContext(Context);
 	return (
 		<nav className="navbar greenPulseBG sticky-top">
 			<Link to="/" className="col-3">
@@ -20,6 +22,7 @@ export const Navbar = () => {
 				<Link className="text-white nav-item ml-3" to="/login">
 					Ingresar
 				</Link>
+				<div className="col-4 text-white float-right">{store.username_temp}</div>
 			</div>
 		</nav>
 	);

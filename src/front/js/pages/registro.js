@@ -45,7 +45,7 @@ export const Registro = () => {
 			.then(data => {
 				sessionStorage.setItem("my_token", data.token);
 				console.log(sessionStorage);
-				alert("Tu cuenta de ha creado con exito, Bienvenido");
+				alert("Tu cuenta se ha creado con exito, Bienvenido");
 				setAuth(true);
 			})
 			.catch(err => console.log(err));

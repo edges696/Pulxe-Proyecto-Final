@@ -22,7 +22,10 @@ export const Login = () => {
 		})
 			.then(res => res.json())
 			.then(data => {
+				actions.changename(data.username);
+				console.log(data);
 				sessionStorage.setItem("my_token", data.token);
+				alert("has ingresado correctamente", data);
 				setAuth(true);
 			})
 			.catch(err => console.log(err));

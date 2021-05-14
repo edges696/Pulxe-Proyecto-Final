@@ -1,12 +1,9 @@
 """
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
-
-
 from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User, Pulxes, Categorias, Subcategorias
 from api.utils import generate_sitemap, APIException
-
 import os
 from flask_migrate import Migrate
 from flask_swagger import swagger
@@ -14,38 +11,29 @@ from flask_cors import CORS
 from api.admin import setup_admin
 from flask_jwt_extended import create_access_token
 #from models import Person
-
 #import JWT for tokenization
 from flask_jwt_extended import jwt_required, get_jwt_identity, create_access_token
 from flask_jwt_extended import JWTManager
-
-
 api = Blueprint('api', __name__)
 # generate sitemap with all your endpoints
 @api.route('/')
 def sitemap():
     return generate_sitemap(api)
-
 #-----metodos post-------------------------------------
-
 #obtener usuario de base de datos y crea token
-@api.route('/login', methods=['POST']) 
+@api.route('/login', methods=['POST'])
 def login():
     mail = request.json.get("mail", None)
     password = request.json.get("password", None)
-
     print(mail)
     print(password)
-
     user = User.query.filter_by(mail=mail, password=password).first()
     # valida si estan vacios los ingresos
     if user is None:
        return jsonify({"msg": "Bad mail or password"}), 401
-    
     # crear token login
     access_token = create_access_token(identity=mail)
-    return jsonify({"token": access_token})
-
+    return jsonify({"token": access_token, "username":user.name})
 #crea usuario----------------------------------------
 @api.route('/user', methods=['POST'])
 def register_user():
@@ -53,8 +41,6 @@ def register_user():
     numero = request.json.get("numero", None)
     mail = request.json.get("mail", None)
     password = request.json.get("password", None)
-    
-
     # valida si estan vacios los ingresos
     if name is None:
         return jsonify({"msg": "No Name was provided"}), 400
@@ -64,8 +50,6 @@ def register_user():
         return jsonify({"msg": "No numero was provided"}), 400
     if password is None:
         return jsonify({"msg": "No password was provided"}), 400
-    
-    
     # busca usuario en BBDD
     user = User.query.filter_by(password=password,mail=mail).first()
      # the user was not found on the database
@@ -73,12 +57,11 @@ def register_user():
         return jsonify({"msg": "User already exists"}), 401
     else:
         # crea usuario nuevo
-        # crea registro nuevo en BBDD de 
+        # crea registro nuevo en BBDD de
         user = User(name=name, mail=mail,numero=numero, password=password)
         db.session.add(user)
         db.session.commit()
-        return jsonify({"msg": "User created successfully"}), 200
-
+        return jsonify({"msg": "User created successfully", }), 200
 #crea pulxe ----------------------------------------------------------
 @api.route('/pulxes', methods=['POST'])
 def pulxeCreate():
@@ -95,7 +78,6 @@ def pulxeCreate():
     calificacionCantidad = request.json.get("calificacionCantidad", None)
     calificacionTotal = request.json.get("calificacionTotal", None)
     password = request.json.get("password", None)
-
     # valida si estan vacios los ingresos
     if nombre is None:
         return jsonify({"msg": "No Name was provided"}), 400
@@ -117,7 +99,6 @@ def pulxeCreate():
         return jsonify({"msg": "No numero was provided"}), 400
     if password is None:
         return jsonify({"msg": "No password was provided"}), 400
-    
     # busca pulxe en BBDD
     pulxes = Pulxes.query.filter_by(password=password,nombre=nombre,numero=numero).first()
      # the pulxe was not found on the database
@@ -125,15 +106,12 @@ def pulxeCreate():
         return jsonify({"msg": "Pulse already exists"}), 401
     else:
         # crea pulxe nuevo
-        # crea registro nuevo en BBDD de 
+        # crea registro nuevo en BBDD de
         pulxes = Pulxes(nombre=nombre, pulxe=pulxe, categoria=categoria, canton=canton, distrito=distrito, provincia=provincia, descripcion=descripcion,experiencia=experiencia,numero=numero,calificacionPromedio=calificacionPromedio,calificacionCantidad=calificacionCantidad,calificacionTotal=calificacionTotal,password=password)
         db.session.add(pulxes)
         db.session.commit()
         return jsonify({"msg": "User created successfully"}), 200
-
-
 #------metodos  GET--------------------------------------------------------
-
 @api.route('/user', methods = ['GET'])
 def users():
     if request.method == 'GET':
@@ -141,7 +119,6 @@ def users():
         return jsonify([User.serialize(record) for record in records]) #LLAMAR A TODOS
     else:
         return jsonify({"msg": "no autorizado"})
-
 #--------Pulxes---------------------------------------------------------------
 @api.route('/pulxes', methods = ['GET'])
 def pulxes():
@@ -150,13 +127,10 @@ def pulxes():
         return jsonify([Pulxes.serialize(record) for record in records])
     else:
         return jsonify({"msg": "no autorizado"})
-
 #-------------------------------------------------------------------------------
 @api.route('/hello', methods=['POST', 'GET'])
 def handle_hello():
-
     response_body = {
         "message": "Hello! I'm a message that came from the backend"
     }
-
     return jsonify(response_body), 200

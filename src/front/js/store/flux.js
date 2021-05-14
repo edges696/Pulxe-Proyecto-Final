@@ -15,7 +15,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 			ubicaciones: [],
-			pulxes: []
+			pulxes: [],
+			username_temp: ""
 		},
 		actions: {
 			getMessage: () => {
@@ -38,6 +39,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				console.log(response);
 				const results = await response.json();
 				setStore({ ubicaciones: results });
+			},
+			changename: username => {
+				setStore({ username_temp: username });
 			}
 		}
 	};

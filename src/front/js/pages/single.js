@@ -10,7 +10,6 @@ export const Single = props => {
 
 	const whatsapp = "https://wa.me/506" + store.pulxes[params.theid].numero;
 	const llamar = "tel:+506" + store.pulxes[params.theid].numero;
-
 	return (
 		<div className="container mt-5">
 			<div className="row rounded shadow border overflow-hidden">
@@ -78,6 +77,17 @@ export const Single = props => {
 						<div className="col-12 flost-left">
 							<div className="col-12 font-weight-bold float-left">Descripcion</div>
 							<div className="col-12 float-left">{store.pulxes[params.theid].descripcion}</div>
+						</div>
+						<div className="col-12 float-left">
+							<div className="col-12 float-left">
+								<span className="font-weight-bold"> Rango de Precio: </span>
+							</div>
+							<div className="col-12 float-left">
+								<span className="font-weight-bold">De: </span>{" "}
+								<span> {store.pulxes[params.theid].numero}</span>
+								<span className="font-weight-bold ml-3">A: </span>{" "}
+								<span> {store.pulxes[params.theid].numero}</span>
+							</div>
 						</div>
 						<div className="col-12 mt-1 text-center">
 							<div className="col-3 float-left text4r">

@@ -106,9 +106,12 @@ export const Single = props => {
 								/>
 							</div>
 							<div className="col-3 float-left text4r">
-								<a href={llamar} className="llamadaColorText">
-									<i className="far fa-thumbs-up" />
-								</a>
+								<button
+									type="button"
+									className="far fa-star llamadaColorText"
+									data-toggle="modal"
+									data-target="#calificacion"
+								/>
 							</div>
 						</div>
 					</div>
@@ -161,6 +164,40 @@ export const Single = props => {
 							</button>
 							<button type="button" className="btn btn-success">
 								Enviar Mensaje
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div
+				className="modal fade"
+				id="calificacion"
+				tabIndex="-1"
+				aria-labelledby="exampleModalLabel"
+				aria-hidden="true">
+				<div className="modal-dialog">
+					<div className="modal-content">
+						<div className="modal-header">
+							<h5 className="modal-title" id="exampleModalLabel">
+								Califica el Servicio de {store.pulxes[params.theid].nombre}
+							</h5>
+							<button type="button" className="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div className="modal-body">
+							{" "}
+							<div className="input-group align-content-center" id="puntaje">
+								{" "}
+								<StarRating />{" "}
+							</div>
+						</div>
+						<div className="modal-footer">
+							<button type="button" className="btn btn-danger" data-dismiss="modal">
+								Cancelar
+							</button>
+							<button type="button" className="btn btn-success">
+								Guardar
 							</button>
 						</div>
 					</div>

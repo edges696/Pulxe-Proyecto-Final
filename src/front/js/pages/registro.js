@@ -36,7 +36,7 @@ export const Registro = () => {
 		console.log(body);
 		console.log(body.password);
 
-		fetch("https://3001-coffee-catfish-5l5x60j3.ws-us04.gitpod.io/api/pulxes", {
+		fetch("https://3001-apricot-landfowl-qpbyur1m.ws-us04.gitpod.io/api/pulxes", {
 			method: "POST",
 			body: JSON.stringify(body),
 			headers: { "Content-Type": "application/json" }
@@ -113,8 +113,9 @@ export const Registro = () => {
 							id="categoria"
 							required
 							value={categoriaCrear}
-							onChange={e => setCategoriaCrear(e.target.value)}>
-							<option selected>Seleccione una categoría</option>
+							onChange={e => setCategoriaCrear(e.target.value)}
+							defaultValue={"DEFAULT"}>
+							<option value="DEFAULT">Seleccione una categoría</option>
 							<option value="Hogar">Hogar</option>
 							<option value="Mascotas">Mascotas</option>
 							<option value="Mandados">Mandados</option>
@@ -131,7 +132,7 @@ export const Registro = () => {
 							required
 							value={pulxeCrear}
 							onChange={e => setPulxeCrear(e.target.value)}>
-							<option selected>Seleccione un Pulxe</option>
+							<option value="DEFAULT">Seleccione un Pulxe</option>
 							<option value="Remodelación">Remodelación</option>
 							<option value="Pintura">Pintura</option>
 							<option value="Pisos">Pisos</option>
@@ -173,41 +174,41 @@ export const Registro = () => {
 							required
 							value={provinciaCrear}
 							onChange={e => setProvinciaCrear(e.target.value)}>
-							<option selected>Seleccione</option>
-							<option value="1">San José</option>
-							<option value="2">Alajuela</option>
-							<option value="3">Heredia</option>
-							<option value="3">Cartago</option>
-							<option value="3">Puntarenas</option>
-							<option value="3">Limón</option>
-							<option value="3">Guanacaste</option>
+							<option value="DEFAULT">Seleccione</option>
+							<option value="SanJosé">San José</option>
+							<option value="Alajuela">Alajuela</option>
+							<option value="Heredia">Heredia</option>
+							<option value="Cartago">Cartago</option>
+							<option value="Puntarenas">Puntarenas</option>
+							<option value="Limón">Limón</option>
+							<option value="Guanacaste">Guanacaste</option>
 						</select>
 					</div>
 
 					<div className="input-group mb-3">
 						<label className="input-group-text">Cantón</label>
-						<select
-							className="form-control"
-							id="canton"
+						<input
+							type="text"
 							required
-							value={cantonCrear}
-							onChange={e => setCantonCrear(e.target.value)}>
-							<option selected>Seleccione</option>
-							<option value="1">San José</option>
-						</select>
+							onChange={e => setCantonCrear(e.target.value)}
+							className="form-control"
+							placeholder="Cantón en el cual trabaja"
+							aria-label="canton"
+							aria-describedby="canton"
+						/>
 					</div>
 
 					<div className="input-group mb-3">
 						<label className="input-group-text">Distrito</label>
-						<select
-							className="form-control"
-							id="Distrito"
+						<input
+							type="text"
 							required
-							value={distritoCrear}
-							onChange={e => setDistritoCrear(e.target.value)}>
-							<option selected>Seleccione</option>
-							<option value="1">Uruca</option>
-						</select>
+							onChange={e => setDistritoCrear(e.target.value)}
+							className="form-control"
+							placeholder="Dsitrito en el cual trabaja"
+							aria-label="distrito"
+							aria-describedby="distrito"
+						/>
 					</div>
 
 					<div className="input-group mb-3">

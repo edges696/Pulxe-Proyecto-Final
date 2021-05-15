@@ -46,7 +46,7 @@ export const Pulxes = props => {
 							</div>
 							<div className="col-12">
 								<div className="col-6 float-left font-weight-bold">Calificación</div>
-								<div className="col-6 float-left">{props.calificacion}</div>
+								<div className="col-6 float-left">{props.calificacionPromedio}</div>
 							</div>
 							<div className="col-12 text-center mt-3">
 								<Link to={`/single/${props.id}`}>
@@ -70,6 +70,6 @@ Pulxes.propTypes = {
 	provincia: PropTypes.string,
 	experiencia: PropTypes.number,
 	numero: PropTypes.number,
-	calificacion: PropTypes.number,
+	calificacionPromedio: PropTypes.number,
 	id: PropTypes.number
 };

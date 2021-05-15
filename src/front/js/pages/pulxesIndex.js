@@ -85,7 +85,7 @@ export const PulxesIndex = () => {
 							canton={item.canton}
 							experiencia={item.experiencia}
 							numero={item.numero}
-							calificacion={item.calificacion}
+							calificacionPromedio={item.calificacionPromedio}
 							id={index}
 						/>
 					</div>

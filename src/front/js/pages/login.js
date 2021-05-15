@@ -15,7 +15,7 @@ export const Login = () => {
 		e.preventDefault();
 		const body = { mail: mail, password: password };
 		console.log(body);
-		fetch("https://3001-coffee-catfish-5l5x60j3.ws-us04.gitpod.io/api/login", {
+		fetch("https://3001-apricot-landfowl-qpbyur1m.ws-us04.gitpod.io/api/login", {
 			method: "POST",
 			body: JSON.stringify(body),
 			headers: { "Content-Type": "application/json" }
@@ -81,6 +81,9 @@ export const Login = () => {
 						</div>
 					</form>
 					{auth ? <Redirect to="/" /> : null}
+					<div className="col-12 text-center mt-5">
+						<Link to="/password">Cambiar contraseña</Link>
+					</div>
 				</div>
 			</div>
 		</div>

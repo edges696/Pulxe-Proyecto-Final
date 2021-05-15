@@ -103,7 +103,7 @@ def pulxeCreate():
     pulxes = Pulxes.query.filter_by(password=password,nombre=nombre,numero=numero).first()
      # the pulxe was not found on the database
     if pulxes:
-        return jsonify({"msg": "Pulse already exists"}), 401
+        return jsonify({"msg": "Pulse already exists","calificacion":pulxes.calificacionPromedio}), 401
     else:
         # crea pulxe nuevo
         # crea registro nuevo en BBDD de
@@ -127,6 +127,29 @@ def pulxes():
         return jsonify([Pulxes.serialize(record) for record in records])
     else:
         return jsonify({"msg": "no autorizado"})
+#cambio de contraseña ----------------------------------------
+@api.route('/cambioContrasena', methods=['POST'])
+def cambioContraseña():
+    mail = request.json.get("mail", None)
+    password = request.json.get("password", None)
+    # valida si estan vacios los ingresos
+    if mail is None:
+        return jsonify({"msg": "No email was provided"}), 400
+    if password is None:
+        return jsonify({"msg": "No password was provided"}), 400
+    # busca usuario en BBDD
+    user = User.query.filter_by(password=password,mail=mail).first()
+
+     # si el usuario existe cambia de passsword
+    if user:
+        user = User( password=password)
+        db.session.add(user)
+        db.session.commit()
+        return jsonify({"msg": "User created successfully", }), 200
+    else:
+        return jsonify({"msg": "User already exists"}), 400
+
+
 #-------------------------------------------------------------------------------
 @api.route('/hello', methods=['POST', 'GET'])
 def handle_hello():

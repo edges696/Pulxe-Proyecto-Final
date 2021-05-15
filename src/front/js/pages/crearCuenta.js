@@ -18,7 +18,7 @@ export const CrearCuenta = () => {
 		const body = { name: nameCrear, mail: mailCrear, password: passwordCrear, numero: numeroCrear };
 		console.log(body);
 
-		fetch("https://3001-coffee-catfish-5l5x60j3.ws-us04.gitpod.io/api/user", {
+		fetch("https://3001-apricot-landfowl-qpbyur1m.ws-us04.gitpod.io/api/user", {
 			method: "POST",
 			body: JSON.stringify(body),
 			headers: { "Content-Type": "application/json" }
@@ -89,19 +89,26 @@ export const CrearCuenta = () => {
 					/>
 				</div>
 
-				<div className="input-group mb-3">
+				<div className="input-group">
 					<span className="input-group-text" id="basic-addon1">
 						Contraseña
 					</span>
 					<input
 						type="password"
 						required
+						pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
 						onChange={e => setPasswordCrear(e.target.value)}
 						className="form-control"
 						placeholder="Contraseña"
 						aria-label="password"
 						aria-describedby="basic-addon1"
 					/>
+				</div>
+				<div className="col-12 mb-3">
+					<span className="badge badge-pill badge-light">
+						*La contraseña debe contener 8 o más caracteres de al menos un número y una letra mayúscula y
+						minúscula
+					</span>
 				</div>
 				<div className="input-group mb-3">
 					<span className="input-group-text" id="basic-addon1">
@@ -130,7 +137,7 @@ export const CrearCuenta = () => {
 					</div>
 				</div>
 			</form>
-			{auth ? <Redirect to="/pulxesIndex" /> : null}
+			{auth ? <Redirect to="/login" /> : null}
 		</div>
 	);
 };

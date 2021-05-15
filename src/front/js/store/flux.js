@@ -16,7 +16,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			],
 			ubicaciones: [],
 			pulxes: [],
-			username_temp: ""
+			username_temp: "",
+			calificacion_temp: ""
 		},
 		actions: {
 			getMessage: () => {
@@ -27,7 +28,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(error => console.log("Error loading message from backend", error));
 			},
 			loadPulxes: async () => {
-				const url = "https://3001-coffee-catfish-5l5x60j3.ws-us04.gitpod.io/api/pulxes"; //url de backend
+				const url = "https://3001-apricot-landfowl-qpbyur1m.ws-us04.gitpod.io/api/pulxes"; //url de backend
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ pulxes: results });
@@ -42,6 +43,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			changename: username => {
 				setStore({ username_temp: username });
+			},
+			changeCalificacion: calificacion => {
+				setStore({ calificacion_temp: calificacion });
 			}
 		}
 	};

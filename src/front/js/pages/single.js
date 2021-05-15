@@ -2,11 +2,20 @@ import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
-import StarRating from "../component/StarRating";
+//import StarRating from "../component/StarRating";
 
 export const Single = props => {
+	const [rating, setRating] = useState();
+	const [hover, setHover] = useState(0);
 	const { store, actions } = useContext(Context);
 	const params = useParams();
+
+	const califica = store.pulxes[params.theid].calificacionPromedio;
+	console.log(califica);
+
+	useEffect(() => {
+		setRating(califica);
+	}, []);
 
 	const whatsapp = "https://wa.me/506" + store.pulxes[params.theid].numero;
 	const llamar = "tel:+506" + store.pulxes[params.theid].numero;
@@ -29,7 +38,18 @@ export const Single = props => {
 						</div>
 						<div className="col-12 float-left text-center">
 							<div className="col-12 float-left font-weight-bold">
-								Calificación <StarRating />
+								Calificación
+								{[...Array(5)].map((star, index) => {
+									index += 1;
+									return (
+										<button
+											type="button"
+											key={index}
+											className={index <= (hover || rating) ? "on" : "off"}>
+											<span className="star">&#9733;</span>
+										</button>
+									);
+								})}
 							</div>
 						</div>
 					</div>
@@ -77,17 +97,6 @@ export const Single = props => {
 						<div className="col-12 flost-left">
 							<div className="col-12 font-weight-bold float-left">Descripcion</div>
 							<div className="col-12 float-left">{store.pulxes[params.theid].descripcion}</div>
-						</div>
-						<div className="col-12 float-left">
-							<div className="col-12 float-left">
-								<span className="font-weight-bold"> Rango de Precio: </span>
-							</div>
-							<div className="col-12 float-left">
-								<span className="font-weight-bold">De: </span>{" "}
-								<span> {store.pulxes[params.theid].numero}</span>
-								<span className="font-weight-bold ml-3">A: </span>{" "}
-								<span> {store.pulxes[params.theid].numero}</span>
-							</div>
 						</div>
 						<div className="col-12 mt-1 text-center">
 							<div className="col-3 float-left text4r">
@@ -196,10 +205,23 @@ export const Single = props => {
 							</button>
 						</div>
 						<div className="modal-body">
-							{" "}
 							<div className="input-group align-content-center" id="puntaje">
-								{" "}
-								<StarRating />{" "}
+								<div className="star-rating">
+									{[...Array(5)].map((star, index) => {
+										index += 1;
+										return (
+											<button
+												type="button"
+												key={index}
+												className={index <= (hover || rating) ? "on" : "off"}
+												onClick={() => setRating(index)}
+												onMouseEnter={() => setHover(index)}
+												onMouseLeave={() => setHover(rating)}>
+												<span className="star">&#9733;</span>
+											</button>
+										);
+									})}
+								</div>
 							</div>
 						</div>
 						<div className="modal-footer">

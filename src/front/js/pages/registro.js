@@ -36,7 +36,7 @@ export const Registro = () => {
 		console.log(body);
 		console.log(body.password);
 
-		fetch("https://3001-apricot-landfowl-qpbyur1m.ws-us04.gitpod.io/api/pulxes", {
+		fetch("https://3001-tan-cow-5rn2p60q.ws-us04.gitpod.io/api/pulxes", {
 			method: "POST",
 			body: JSON.stringify(body),
 			headers: { "Content-Type": "application/json" }

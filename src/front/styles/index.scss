@@ -60,7 +60,8 @@ body{
     height: 90vh;
     background-attachment: fixed;
     background-size: cover;
-    text-shadow: 0 0 5px #000;;
+    text-shadow: 0 0 5px #000;
+    filter: grayscale(100%);
 }
 .countRounded{
     margin: 0 auto;

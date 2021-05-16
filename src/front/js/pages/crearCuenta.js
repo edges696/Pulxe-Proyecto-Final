@@ -18,7 +18,7 @@ export const CrearCuenta = () => {
 		const body = { name: nameCrear, mail: mailCrear, password: passwordCrear, numero: numeroCrear };
 		console.log(body);
 
-		fetch("https://3001-apricot-landfowl-qpbyur1m.ws-us04.gitpod.io/api/user", {
+		fetch("https://3001-tan-cow-5rn2p60q.ws-us04.gitpod.io/api/user", {
 			method: "POST",
 			body: JSON.stringify(body),
 			headers: { "Content-Type": "application/json" }

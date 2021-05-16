@@ -28,7 +28,7 @@ export const Navbar = () => {
 					</Link>
 				</div>
 				<div className="col-3 text-white float-left">{store.username_temp}</div>
-				<div className="col-1 text-white float-left" id="btnLogOut">
+				<div className="col-1 text-white float-left d-none" id="btnLogOut">
 					<a href="#" onClick={refrescar} className="text-white">
 						<h4>
 							<i className="fas fa-sign-out-alt" />

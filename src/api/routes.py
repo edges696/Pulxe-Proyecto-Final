@@ -131,23 +131,21 @@ def pulxes():
 @api.route('/cambioContrasena', methods=['POST'])
 def cambioContraseña():
     mail = request.json.get("mail", None)
-    password = request.json.get("password", None)
+    password = request.json.get("password", None) #nuevo password
     # valida si estan vacios los ingresos
     if mail is None:
         return jsonify({"msg": "No email was provided"}), 400
-    if password is None:
-        return jsonify({"msg": "No password was provided"}), 400
+
     # busca usuario en BBDD
-    user = User.query.filter_by(password=password,mail=mail).first()
+    user = User.query.filter_by(mail=mail).first()
 
      # si el usuario existe cambia de passsword
-    if user:
-        user = User( password=password)
-        db.session.add(user)
-        db.session.commit()
-        return jsonify({"msg": "User created successfully", }), 200
-    else:
-        return jsonify({"msg": "User already exists"}), 400
+    if not user:
+        return jsonify({"msg": "Usuario no existe"}), 400
+ 
+    user.password=password
+    db.session.commit()
+    return jsonify({"msg": "Seactualizo correctamente el password", }), 200
 
 
 #-------------------------------------------------------------------------------

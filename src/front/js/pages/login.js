@@ -9,28 +9,42 @@ export const Login = () => {
 	const { store, actions } = useContext(Context);
 	const [mail, setMail] = useState("");
 	const [password, setPassword] = useState("");
+	const [error, setError] = useState(false);
 	const [auth, setAuth] = useState(false);
 
 	const enviar = e => {
 		e.preventDefault();
 		const body = { mail: mail, password: password };
 		console.log(body);
-		fetch("https://3001-apricot-landfowl-qpbyur1m.ws-us04.gitpod.io/api/login", {
+		fetch("https://3001-tan-cow-5rn2p60q.ws-us04.gitpod.io/api/login", {
 			method: "POST",
 			body: JSON.stringify(body),
 			headers: { "Content-Type": "application/json" }
 		})
-			.then(res => res.json())
+			// .then(res => res.json())
+			.then(response => {
+				if (!response.ok) {
+					setError(true);
+					throw Error(response.statusText);
+				}
+				return response.json();
+			})
 			.then(data => {
 				actions.changename(data.username);
 				console.log(data);
 				sessionStorage.setItem("my_token", data.token);
-				alert("has ingresado correctamente", data);
 				setAuth(true);
+				successfulLogin();
 			})
 			.catch(err => console.log(err));
 	};
 
+	function successfulLogin() {
+		let btnLog = document.getElementById("btnLogOut");
+		btnLog.classList.remove("d-none");
+		console.log(btnLog);
+		alert("has ingresado correctamente");
+	}
 	return (
 		<div className="container mt-5">
 			<div className="tab-content" id="nav-tabContent">
@@ -38,7 +52,11 @@ export const Login = () => {
 					<div className="col-12 text-center">
 						<h2 className="col-12">Login</h2>
 					</div>
-
+					{error ? (
+						<div className="alert alert-naranjaContraste text-center" role="alert">
+							Correo Electrónico o Contraseña erróneos
+						</div>
+					) : null}
 					<form onSubmit={enviar}>
 						<div className="input-group mb-3">
 							<div className="input-group-prepend">

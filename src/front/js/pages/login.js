@@ -16,7 +16,7 @@ export const Login = () => {
 		e.preventDefault();
 		const body = { mail: mail, password: password };
 		console.log(body);
-		fetch("https://3001-tan-cow-5rn2p60q.ws-us04.gitpod.io/api/login", {
+		fetch("https://3001-blush-pigeon-j6j7g7fg.ws-us04.gitpod.io/api/login", {
 			method: "POST",
 			body: JSON.stringify(body),
 			headers: { "Content-Type": "application/json" }
@@ -83,6 +83,7 @@ export const Login = () => {
 							</div>
 							<input
 								type="password"
+								pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
 								onChange={e => setPassword(e.target.value)}
 								id="password"
 								name="password"
@@ -91,6 +92,12 @@ export const Login = () => {
 								aria-label="Username"
 								aria-describedby="basic-addon1"
 							/>
+						</div>
+						<div className="col-12 mb-3">
+							<span className="badge badge-pill badge-light">
+								*La contraseña debe contener 8 o más caracteres de al menos un número y una letra
+								mayúscula y minúscula
+							</span>
 						</div>
 						<div className="col-12 text-center">
 							<button type="submit" className="btn btn-primary">

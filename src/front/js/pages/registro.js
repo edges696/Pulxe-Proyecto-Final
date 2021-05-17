@@ -36,7 +36,7 @@ export const Registro = () => {
 		console.log(body);
 		console.log(body.password);
 
-		fetch("https://3001-tan-cow-5rn2p60q.ws-us04.gitpod.io/api/pulxes", {
+		fetch("https://3001-blush-pigeon-j6j7g7fg.ws-us04.gitpod.io/api/pulxes", {
 			method: "POST",
 			body: JSON.stringify(body),
 			headers: { "Content-Type": "application/json" }
@@ -74,7 +74,7 @@ export const Registro = () => {
 							aria-describedby="nombre"
 						/>
 					</div>
-					<div className="input-group mb-3">
+					<div className="input-group mb-3 col-6 float-left p-0">
 						<span className="input-group-text" id="numero">
 							Número
 						</span>
@@ -89,7 +89,7 @@ export const Registro = () => {
 							aria-describedby="numero"
 						/>
 					</div>
-					<div className="input-group mb-3">
+					<div className="input-group mb-3 col-5 offset-1 float-left p-0">
 						<span className="input-group-text" id="experiencia">
 							Años de Experiencia
 						</span>
@@ -103,10 +103,10 @@ export const Registro = () => {
 							aria-describedby="experiencia"
 						/>
 					</div>
-					<div className="col-12 text-left mt-9">
+					<div className="col-12 float-left text-left mt-9">
 						<h4>Datos del servicio</h4>
 					</div>
-					<div className="input-group mb-3">
+					<div className="input-group mb-3 col-6 float-left p-0">
 						<label className="input-group-text">Categoría</label>
 						<select
 							className="form-control"
@@ -124,7 +124,7 @@ export const Registro = () => {
 							<option value="Belleza">Belleza</option>
 						</select>
 					</div>
-					<div className="input-group mb-3">
+					<div className="input-group mb-3 col-5 offset-1 float-left p-0">
 						<label className="input-group-text">Pulxe</label>
 						<select
 							className="form-control"
@@ -162,11 +162,11 @@ export const Registro = () => {
 							Llevas {descripcionCrear.length} Caracteres{" "}
 						</span>
 					</div>
-					<div className="col text-left mt-9">
+					<div className="col-12 float-left text-left mt-9">
 						<h4>Ubicación del servicio</h4>
 					</div>
 
-					<div className="input-group mb-3">
+					<div className="input-group mb-3 col-4 float-left p-0">
 						<label className="input-group-text">Provincia</label>
 						<select
 							className="form-control"
@@ -185,30 +185,55 @@ export const Registro = () => {
 						</select>
 					</div>
 
-					<div className="input-group mb-3">
+					<div className="input-group mb-3 col-3 offset-1 float-left p-0">
 						<label className="input-group-text">Cantón</label>
-						<input
-							type="text"
-							required
-							onChange={e => setCantonCrear(e.target.value)}
+						<select
 							className="form-control"
-							placeholder="Cantón en el cual trabaja"
-							aria-label="canton"
-							aria-describedby="canton"
-						/>
+							id="canton"
+							required
+							value={cantonCrear}
+							onChange={e => setCantonCrear(e.target.value)}>
+							<option value="DEFAULT">Seleccione</option>
+							<option value="SanJosé">San José</option>
+							<option value="Escazú">Escazú</option>
+							<option value="Desamparados">Desamparados</option>
+							<option value="Puriscal">Puriscal</option>
+							<option value="Tarrazú">Tarrazú</option>
+							<option value="Aserrí">Aserrí</option>
+							<option value="Mora">Mora</option>
+							<option value="Goicoechea">Goicoechea</option>
+							<option value="Santa Ana">Santa Ana</option>
+							<option value="Alajuelita">Alajuelita</option>
+							<option value="Vázquez de Coronado">Vázquez de Coronado</option>
+							<option value="Acosta">Acosta</option>
+							<option value="Tibás">Tibás</option>
+							<option value=" Moravia"> Moravia</option>
+							<option value="Montes de Oca">Montes de Oca</option>
+							<option value="Turrubares">Turrubares</option>
+							<option value="Dota">Dota</option>
+							<option value="Curridabat">Curridabat</option>
+							<option value="Pérez Zeledón">Pérez Zeledón</option>
+							<option value="León Cortés Castro">León Cortés Castro</option>
+						</select>
 					</div>
 
-					<div className="input-group mb-3">
+					<div className="input-group mb-3 col-3 offset-1 float-left p-0">
 						<label className="input-group-text">Distrito</label>
-						<input
-							type="text"
-							required
-							onChange={e => setDistritoCrear(e.target.value)}
+						<select
 							className="form-control"
-							placeholder="Dsitrito en el cual trabaja"
-							aria-label="distrito"
-							aria-describedby="distrito"
-						/>
+							id="distrito"
+							required
+							value={distritoCrear}
+							onChange={e => setDistritoCrear(e.target.value)}>
+							<option value="DEFAULT">Seleccione</option>
+							<option value="Colón">Colón</option>
+							<option value="Guayabo">Guayabo</option>
+							<option value="Tabarcia">Tabarcia</option>
+							<option value="Piedras Negras">Piedras Negras</option>
+							<option value="Picagres">Picagres</option>
+							<option value="Jaris">Jaris</option>
+							<option value="Quitirrisí">Quitirrisí</option>
+						</select>
 					</div>
 
 					<div className="input-group mb-3">

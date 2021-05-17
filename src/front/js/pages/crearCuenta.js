@@ -18,7 +18,7 @@ export const CrearCuenta = () => {
 		const body = { name: nameCrear, mail: mailCrear, password: passwordCrear, numero: numeroCrear };
 		console.log(body);
 
-		fetch("https://3001-tan-cow-5rn2p60q.ws-us04.gitpod.io/api/user", {
+		fetch("https://3001-blush-pigeon-j6j7g7fg.ws-us04.gitpod.io/api/user", {
 			method: "POST",
 			body: JSON.stringify(body),
 			headers: { "Content-Type": "application/json" }
@@ -109,19 +109,6 @@ export const CrearCuenta = () => {
 						*La contraseña debe contener 8 o más caracteres de al menos un número y una letra mayúscula y
 						minúscula
 					</span>
-				</div>
-				<div className="input-group mb-3">
-					<span className="input-group-text" id="basic-addon1">
-						Confirmar Contraseña
-					</span>
-					<input
-						type="text"
-						required
-						className="form-control"
-						placeholder="Confirmar Contraseña"
-						aria-label="confirm password"
-						aria-describedby="basic-addon1"
-					/>
 				</div>
 
 				<div className="container">

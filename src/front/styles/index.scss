@@ -61,7 +61,6 @@ body{
     background-attachment: fixed;
     background-size: cover;
     text-shadow: 0 0 5px #000;
-    filter: grayscale(100%);
 }
 .countRounded{
     margin: 0 auto;
@@ -106,4 +105,11 @@ button {
 }
 .star{
     font-size: 2rem;
+}
+/*----forms-----*/
+.input-group-text {
+    color: #117864;
+    background-color: rgba(17, 120, 100 , .1);
+    border: 1px solid rgba(17, 120, 100 , .3);
+    border-radius: .25rem 0 0 .25rem;
 }

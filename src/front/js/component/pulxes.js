@@ -7,16 +7,36 @@ import "../../styles/demo.scss";
 
 export const Pulxes = props => {
 	const { store, actions } = useContext(Context);
-
+	let urlimagen =
+		"https://www.papernest.es/blog/wp-content/uploads/2020/06/shutterstock_164852135-e1593077044741.jpg";
+	if (props.categoria === "Mascotas") {
+		urlimagen =
+			"https://images.unsplash.com/photo-1542741065-3c98eaf187b6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80";
+	}
+	if (props.categoria === "Hogar") {
+		urlimagen =
+			"https://www.papernest.es/blog/wp-content/uploads/2020/06/shutterstock_164852135-e1593077044741.jpg";
+	}
+	if (props.categoria === "Fitness") {
+		urlimagen =
+			"https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80";
+	}
+	if (props.categoria === "Belleza") {
+		urlimagen = "https://i.postimg.cc/WzB09PP9/Screen-Shot-2021-05-18-at-8-34-57-PM.png";
+	}
+	if (props.categoria === "Mecánica") {
+		urlimagen =
+			"https://images.unsplash.com/photo-1599256872237-5dcc0fbe9668?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80";
+	}
+	if (props.categoria === "Mandados") {
+		urlimagen =
+			"https://images.unsplash.com/photo-1512475673240-c0e17957c46b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80";
+	}
 	return (
 		<div className="container mt-5">
 			<div className="col-4 float-left mb-5">
 				<div className="card shadow">
-					<img
-						src="https://image.freepik.com/foto-gratis/carpintero-trabajando_23-2147773407.jpg"
-						className="card-img-top"
-						alt="..."
-					/>
+					<img src={urlimagen} className="card-img-top" alt="..." />
 					<div className="card-body">
 						<h5 className="card-title text-center">{props.nombre}</h5>
 						<div className="row">

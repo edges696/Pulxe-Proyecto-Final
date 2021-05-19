@@ -16,7 +16,7 @@ export const Login = () => {
 		e.preventDefault();
 		const body = { mail: mail, password: password };
 		console.log(body);
-		fetch("https://3001-blush-pigeon-j6j7g7fg.ws-us04.gitpod.io/api/login", {
+		fetch("https://3001-magenta-aphid-u46yru72.ws-us04.gitpod.io/api/login", {
 			method: "POST",
 			body: JSON.stringify(body),
 			headers: { "Content-Type": "application/json" }
